@@ -442,14 +442,13 @@ const Partner = () => {
       </section>
 
       {/* How It Works for Doctors */}
-      <section id="how-it-works" className="how-it-works" style={{
+      <section id="how-it-works" className="doctor-workflow-section" style={{
         padding: responsive.container.padding,
         backgroundColor: "#f8fafc",
         borderTop: "1px solid #eaeef2",
         borderBottom: "1px solid #eaeef2"
       }}>
         <div style={{
-          maxWidth: "1200px",
           margin: "0 auto",
           width: "100%"
         }}>
@@ -475,7 +474,7 @@ const Partner = () => {
             </p>
           </div>
           
-          <div style={{ 
+          <div className="doctor-workflow-content" style={{
             display: "grid",
             gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 500px), 1fr))",
             gap: "clamp(30px, 5vw, 60px)",
@@ -492,278 +491,101 @@ const Partner = () => {
               position: "relative",
               width: "100%"
             }}>
-              <div style={{
-                width: "100%",
-                height: "100%",
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-                background: "linear-gradient(120deg, #ebf4fa 0%, #d4e8f8 100%)",
-                position: "relative"
-              }}>
-                <div style={{
-                  width: "clamp(60px, 15vw, 80px)",
-                  height: "clamp(60px, 15vw, 80px)",
-                  borderRadius: "50%",
-                  backgroundColor: "rgba(255,255,255,0.9)",
-                  display: "flex",
-                  justifyContent: "center",
-                  alignItems: "center",
-                  cursor: "pointer",
-                  boxShadow: "0 10px 20px rgba(0,0,0,0.1)",
-                  transition: "transform 0.3s ease",
-                  position: "relative",
-                  zIndex: "2"
-                }}>
-                  <span style={{ 
-                    fontSize: "clamp(20px, 5vw, 30px)", 
-                    color: "#4A90E2" 
-                  }}>▶</span>
-                </div>
-                <div style={{
-                  position: "absolute",
-                  bottom: "clamp(15px, 4vw, 30px)",
-                  left: "0",
+              <iframe 
+                src="https://www.youtube.com/embed/Bv-J4XSRLx4" 
+                title="How TellYouDoc Works for Doctors"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                style={{
                   width: "100%",
-                  textAlign: "center",
-                  color: "#2c3e50",
-                  fontWeight: "500",
-                  zIndex: "1",
-                  fontSize: responsive.smallText.fontSize,
-                  padding: "0 10px"
-                }}>
-                  Watch How TellYouDoc Works
-                </div>
-              </div>
+                  height: "100%",
+                  borderRadius: "12px"
+                }}
+              ></iframe>
             </div>
 
             {/* Right side - Content */}
-            <div>
-              <div style={{ marginBottom: "clamp(20px, 5vw, 40px)" }}>
-                <h3 style={{ 
-                  fontSize: responsive.subheading.fontSize, 
-                  marginBottom: "clamp(10px, 3vw, 16px)", 
-                  color: "#2c3e50",
-                  fontWeight: "500" 
-                }}>Simple Steps to Transform Your Practice</h3>
-                <p style={{ 
-                  lineHeight: "1.8", 
-                  color: "#5a6a7e", 
-                  marginBottom: "clamp(15px, 4vw, 25px)",
-                  fontSize: responsive.paragraph.fontSize
-                }}>
-                  TellYouDoc connects you with patients who need your expertise through our 
-                  intuitive platform, designed specifically for the Indian healthcare context.
-                </p>
-              </div>
+            <div className="doctor-workflow-info" style={{ textAlign: "left", width: "100%" }}>
+              <div className="about-text">
+                <div className="about-info" style={{ textAlign: "left" }}>
+                  <div className="about-item" style={{ 
+                    marginBottom: "clamp(15px, 4vw, 25px)",
+                    display: "flex",
+                    flexDirection: "column"
+                  }}>
+                    <span className="about-item-label" style={{
+                      fontSize: "clamp(16px, 4vw, 18px)",
+                      color: "#4A90E2",
+                      fontWeight: "600",
+                      marginBottom: "8px",
+                      display: "flex",
+                      alignItems: "center"
+                    }}>
+                      <i className="fas fa-user-plus" style={{ marginRight: "10px" }}></i> Step 1:
+                    </span>
+                    <p style={{ 
+                      marginLeft: "28px", 
+                      fontSize: responsive.paragraph.fontSize,
+                      color: "#5a6a7e",
+                      lineHeight: "1.6"
+                    }}>
+                      Create Your Profile: Join via QR or Email, and set your Schedule.
+                    </p>
+                  </div>
 
-              <div style={{ 
-                display: "flex", 
-                flexDirection: "column", 
-                gap: "clamp(15px, 4vw, 30px)" 
-              }}>
-                {/* Step 1 */}
-                <div style={{ 
-                  display: "flex", 
-                  alignItems: "stretch", 
-                  gap: "clamp(10px, 3vw, 20px)",
-                  background: "white",
-                  borderRadius: "10px",
-                  boxShadow: "0 4px 16px rgba(0,0,0,0.05)",
-                  padding: "clamp(15px, 4vw, 24px)",
-                  transition: "transform 0.3s ease, box-shadow 0.3s ease",
-                  cursor: "default",
-                  flexDirection: "row",
-                  flexWrap: "nowrap"
-                }}>
-                  <div style={{ 
-                    backgroundColor: "#4A90E2", 
-                    color: "white", 
-                    width: "clamp(40px, 10vw, 50px)", 
-                    height: "clamp(40px, 10vw, 50px)", 
-                    borderRadius: "12px", 
-                    display: "flex", 
-                    justifyContent: "center", 
-                    alignItems: "center",
-                    flexShrink: 0,
-                    fontWeight: "bold",
-                    fontSize: "clamp(16px, 4vw, 20px)",
-                    boxShadow: "0 5px 15px rgba(74, 144, 226, 0.3)"
-                  }}>1</div>
-                  <div>
-                    <h3 style={{ 
-                      fontSize: "clamp(16px, 4vw, 20px)", 
-                      marginBottom: "clamp(5px, 2vw, 10px)",
-                      color: "#2c3e50",
-                      fontWeight: "600"
-                    }}>Create Your Profile</h3>
-                    <p style={{ 
-                      color: "#5a6a7e",
-                      lineHeight: "1.6",
-                      fontSize: responsive.paragraph.fontSize
-                    }}>Set up your professional profile, credentials, and availability to start receiving patient requests.</p>
-                    <div style={{
-                      marginTop: "clamp(8px, 2vw, 12px)",
+                  <div className="about-item" style={{ 
+                    marginBottom: "clamp(15px, 4vw, 25px)",
+                    display: "flex",
+                    flexDirection: "column"
+                  }}>
+                    <span className="about-item-label" style={{
+                      fontSize: "clamp(16px, 4vw, 18px)",
+                      color: "#4A90E2",
+                      fontWeight: "600",
+                      marginBottom: "8px",
                       display: "flex",
-                      gap: "clamp(8px, 2vw, 15px)",
-                      justifyContent: "center",
-                      flexWrap: "wrap"
+                      alignItems: "center"
                     }}>
-                      <span style={{
-                        fontSize: responsive.smallText.fontSize,
-                        backgroundColor: "#e8f4fd",
-                        color: "#4A90E2",
-                        padding: "4px 12px",
-                        borderRadius: "20px",
-                        display: "inline-block"
-                      }}>QR Sign-up</span>
-                      <span style={{
-                        fontSize: responsive.smallText.fontSize,
-                        backgroundColor: "#e8f4fd",
-                        color: "#4A90E2",
-                        padding: "4px 12px",
-                        borderRadius: "20px",
-                        display: "inline-block"
-                      }}>Email Verification</span>
-                    </div>
+                      <i className="fas fa-laptop-medical" style={{ marginRight: "10px" }}></i> Step 2:
+                    </span>
+                    <p style={{ 
+                      marginLeft: "28px", 
+                      fontSize: responsive.paragraph.fontSize,
+                      color: "#5a6a7e",
+                      lineHeight: "1.6"
+                    }}>
+                      Get Patient Requests: Receive symptom records, respond with notes.
+                    </p>
                   </div>
-                </div>
-                
-                {/* Step 2 */}
-                <div style={{ 
-                  display: "flex", 
-                  alignItems: "stretch", 
-                  gap: "clamp(10px, 3vw, 20px)",
-                  background: "white",
-                  borderRadius: "10px",
-                  boxShadow: "0 4px 16px rgba(0,0,0,0.05)",
-                  padding: "clamp(15px, 4vw, 24px)",
-                  transition: "transform 0.3s ease, box-shadow 0.3s ease",
-                  cursor: "default",
-                  flexDirection: "row",
-                  flexWrap: "nowrap"
-                }}>
-                  <div style={{ 
-                    backgroundColor: "#4A90E2", 
-                    color: "white", 
-                    width: "clamp(40px, 10vw, 50px)", 
-                    height: "clamp(40px, 10vw, 50px)", 
-                    borderRadius: "12px", 
-                    display: "flex", 
-                    justifyContent: "center", 
-                    alignItems: "center",
-                    flexShrink: 0,
-                    fontWeight: "bold",
-                    fontSize: "clamp(16px, 4vw, 20px)",
-                    boxShadow: "0 5px 15px rgba(74, 144, 226, 0.3)"
-                  }}>2</div>
-                  <div>
-                    <h3 style={{ 
-                      fontSize: "clamp(16px, 4vw, 20px)", 
-                      marginBottom: "clamp(5px, 2vw, 10px)",
-                      color: "#2c3e50",
-                      fontWeight: "600"
-                    }}>Manage Patient Requests</h3>
-                    <p style={{ 
-                      color: "#5a6a7e",
-                      lineHeight: "1.6",
-                      fontSize: responsive.paragraph.fontSize
-                    }}>Review structured symptom reports and respond with your professional assessment.</p>
-                    <div style={{
-                      marginTop: "clamp(8px, 2vw, 12px)",
+
+                  <div className="about-item" style={{ 
+                    marginBottom: "clamp(15px, 4vw, 25px)",
+                    display: "flex",
+                    flexDirection: "column"
+                  }}>
+                    <span className="about-item-label" style={{
+                      fontSize: "clamp(16px, 4vw, 18px)",
+                      color: "#4A90E2",
+                      fontWeight: "600",
+                      marginBottom: "8px",
                       display: "flex",
-                      gap: "clamp(8px, 2vw, 15px)",
-                      flexWrap: "wrap",
-                      justifyContent: "center"
+                      alignItems: "center"
                     }}>
-                      <span style={{
-                        fontSize: responsive.smallText.fontSize,
-                        backgroundColor: "#e8f4fd",
-                        color: "#4A90E2",
-                        padding: "4px 12px",
-                        borderRadius: "20px",
-                        display: "inline-block"
-                      }}>Symptom Reports</span>
-                      <span style={{
-                        fontSize: responsive.smallText.fontSize,
-                        backgroundColor: "#e8f4fd",
-                        color: "#4A90E2",
-                        padding: "4px 12px",
-                        borderRadius: "20px",
-                        display: "inline-block"
-                      }}>Digital Notes</span>
-                    </div>
-                  </div>
-                </div>
-                
-                {/* Step 3 */}
-                <div style={{ 
-                  display: "flex", 
-                  alignItems: "stretch", 
-                  gap: "clamp(10px, 3vw, 20px)",
-                  background: "white",
-                  borderRadius: "10px",
-                  boxShadow: "0 4px 16px rgba(0,0,0,0.05)",
-                  padding: "clamp(15px, 4vw, 24px)",
-                  transition: "transform 0.3s ease, box-shadow 0.3s ease",
-                  cursor: "default",
-                  flexDirection: "row",
-                  flexWrap: "nowrap"
-                }}>
-                  <div style={{ 
-                    backgroundColor: "#4A90E2", 
-                    color: "white", 
-                    width: "clamp(40px, 10vw, 50px)", 
-                    height: "clamp(40px, 10vw, 50px)", 
-                    borderRadius: "12px", 
-                    display: "flex", 
-                    justifyContent: "center", 
-                    alignItems: "center",
-                    flexShrink: 0,
-                    fontWeight: "bold",
-                    fontSize: "clamp(16px, 4vw, 20px)",
-                    boxShadow: "0 5px 15px rgba(74, 144, 226, 0.3)"
-                  }}>3</div>
-                  <div>
-                    <h3 style={{ 
-                      fontSize: "clamp(16px, 4vw, 20px)", 
-                      marginBottom: "clamp(5px, 2vw, 10px)",
-                      color: "#2c3e50",
-                      fontWeight: "600"
-                    }}>Grow Your Practice</h3>
+                      <i className="fas fa-calendar-check" style={{ marginRight: "10px" }}></i> Step 3:
+                    </span>
                     <p style={{ 
+                      marginLeft: "28px", 
+                      fontSize: responsive.paragraph.fontSize,
                       color: "#5a6a7e",
-                      lineHeight: "1.6",
-                      fontSize: responsive.paragraph.fontSize
-                    }}>Expand your reach, build your reputation, and help more patients with our digital platform.</p>
-                    <div style={{
-                      marginTop: "clamp(8px, 2vw, 12px)",
-                      display: "flex",
-                      gap: "clamp(8px, 2vw, 15px)",
-                      flexWrap: "wrap",
-                      justifyContent: "center"
+                      lineHeight: "1.6"
                     }}>
-                      <span style={{
-                        fontSize: responsive.smallText.fontSize,
-                        backgroundColor: "#e8f4fd",
-                        color: "#4A90E2",
-                        padding: "4px 12px",
-                        borderRadius: "20px",
-                        display: "inline-block"
-                      }}>Analytics</span>
-                      <span style={{
-                        fontSize: responsive.smallText.fontSize,
-                        backgroundColor: "#e8f4fd",
-                        color: "#4A90E2",
-                        padding: "4px 12px",
-                        borderRadius: "20px",
-                        display: "inline-block"
-                      }}>Patient Connections</span>
-                    </div>
+                      Grow Your Practice: Access stats, connects with more patients.
+                    </p>
                   </div>
                 </div>
               </div>
-          </div>
+            </div>
           </div>
         </div>
       </section>
