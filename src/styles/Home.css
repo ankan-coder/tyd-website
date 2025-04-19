@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
 .home-container {
   width: 100%;
   max-width: 100%;
@@ -6,7 +8,6 @@
 
 /* Hero Section */
 .hero-section {
-  padding: 0;
   min-height: 80vh;
   width: 100%;
   position: relative;
@@ -24,6 +25,7 @@
   height: 100%;
   z-index: 0;
   overflow: hidden;
+  opacity: 1;
 }
 
 .hero-background img {
@@ -41,7 +43,7 @@
   height: 100%;
   top: 0;
   left: 0;
-  background: linear-gradient(135deg, rgba(78, 205, 196, 0.2) 0%, rgba(93, 156, 236, 0.2) 100%);
+  /* background: linear-gradient(135deg, rgba(78, 205, 196, 0.2) 0%, rgba(93, 156, 236, 0.2) 100%); */
   z-index: 1;
 }
 
@@ -49,6 +51,10 @@
   position: relative;
   z-index: 2;
   margin-left: 7%;
+  width: 93%;
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 3rem;
 }
 
 .hero-text {
@@ -64,6 +70,12 @@
 .hero-label {
   background: rgba(0, 0, 0, 0.1);
   color: #333;
+  display: inline-block;
+  padding: 6px 12px;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
 .hero-title {
@@ -110,20 +122,21 @@
 
 .hero-cta .cta-button {
   background: linear-gradient(90deg, #2a7d73, #3b6baa);
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
   border: none;
   color: white;
-  font-weight: bold;
-  width: 35%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  padding: 14px 32px;
+  font-size: 1.05rem;
+  font-weight: 600;
+  border-radius: 30px;
+  box-shadow: 0 4px 15px rgba(42, 125, 115, 0.3);
+  transition: all 0.3s ease;
+  display: inline-block;
+  text-decoration: none;
 }
 
 .hero-cta .cta-button:hover {
-  background: linear-gradient(90deg, #247067, #325a96);
   transform: translateY(-3px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 8px 20px rgba(42, 125, 115, 0.4);
 }
 
 .hero-image {
@@ -261,185 +274,403 @@
   }
 }
 
-/* About Us Section */
+/* About Section Styles */
 .about-section {
-  padding: 5rem 5%;
-  background: #fff;
+  min-height: 40vh; /* Reduced from 60vh */
+  width: 100%;
   position: relative;
+  background-color: #f9f9f9;
+  padding: 3rem 0; /* Reduced from 5rem */
   overflow: hidden;
 }
 
 .about-section::before {
   content: '';
   position: absolute;
-  width: 400px;
-  height: 400px;
+  width: 300px;
+  height: 300px;
+  top: -150px;
+  left: -150px;
+  background: linear-gradient(45deg, rgba(42, 125, 115, 0.1), rgba(59, 107, 170, 0.1));
   border-radius: 50%;
-  background: linear-gradient(45deg, rgba(78, 205, 196, 0.05) 0%, rgba(93, 156, 236, 0.05) 100%);
-  top: -200px;
-  left: -200px;
-  z-index: 0;
-  animation: float 15s ease-in-out infinite alternate;
+  z-index: 1;
 }
 
 .about-section::after {
   content: '';
   position: absolute;
-  width: 350px;
-  height: 350px;
+  width: 400px;
+  height: 400px;
+  bottom: -200px;
+  right: -200px;
+  background: linear-gradient(135deg, rgba(42, 125, 115, 0.08), rgba(59, 107, 170, 0.08));
   border-radius: 50%;
-  background: linear-gradient(45deg, rgba(93, 156, 236, 0.05) 0%, rgba(78, 205, 196, 0.05) 100%);
-  bottom: -150px;
-  right: -150px;
-  z-index: 0;
-  animation: float 20s ease-in-out infinite alternate-reverse;
-}
-
-.about-content {
-  display: flex;
-  width: 50%;
-  padding: 2rem;
-  height: 100%;
-  position: relative;
   z-index: 1;
 }
 
-.about-image {
-  width: 50%;
-  height: 100%;
-  overflow: hidden;
+.about-section-content {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem; /* Reduced from 2rem */
   position: relative;
+  z-index: 2;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem; /* Reduced from 2rem */
 }
 
-.about-image img {
+.about-image-container {
+  flex: 1;
+  min-width: 300px;
+  position: relative;
+  text-align: center;
+}
+
+.about-images-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 10px;
+  max-width: 500px;
+  margin: 0 auto;
+  margin-right: 25px;
+  height: 412px;
+  width: 100%;
+}
+
+.about-image-wrapper {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  margin: 5px;
+  aspect-ratio: 1 / 1;
+}
+
+.about-image {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
-  display: block;
-  transition: none;
-  transform: none;
+  border-radius: 8px;
+  transition: all 0.5s ease;
 }
 
-.about-image:hover img {
-  transform: none;
+/* Remove the specific margin adjustments for individual images since we're using a proper grid gap now */
+.about-image:nth-child(2),
+.about-image:nth-child(3),
+.about-image:nth-child(4),
+.about-image:last-child {
+  margin: 0;
 }
 
-.about-text {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  width: 100%;
-  height: 100%;
+.about-image:hover {
+  transform: scale(1.05);
+  z-index: 5;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.about-content {
+  flex: 1;
+  min-width: 300px;
+  text-align: left;
+  margin-top: -10px; /* Added negative margin to reduce space */
 }
 
 .about-header {
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
+  text-align: left;
 }
 
 .about-label {
   display: inline-block;
+  padding: 5px 10px;
   font-size: 0.9rem;
   font-weight: 600;
-  color: var(--primary-color);
+  color: #2a7d73;
+  background-color: rgba(42, 125, 115, 0.1);
+  border-radius: 20px;
+  margin-bottom: 0.5rem;
   text-transform: uppercase;
   letter-spacing: 1px;
-  margin-bottom: 0.5rem;
-  padding: 0.2rem 0.5rem;
-  background: rgba(78, 205, 196, 0.1);
-  border-radius: 4px;
 }
 
 .about-title {
-  font-size: 1.8rem;
+  font-size: 2.2rem; /* Reduced from 2.5rem */
   font-weight: 700;
-  color: var(--text-color);
+  margin-bottom: 0.7rem; /* Reduced from 1rem */
+  color: #333;
   line-height: 1.2;
-  margin-top: 0.5rem;
-  margin-bottom: 0.8rem;
 }
 
 .about-info {
-  margin-bottom: 1rem;
+  margin-top: 0.5rem; /* Reduced from 1rem */
+  text-align: left;
 }
 
 .about-item {
-  margin-bottom: 1.2rem;
-  font-size: 1rem;
-  line-height: 1.6;
-  text-align: left;
+  margin-bottom: 1.5rem; /* Reduced from 2rem */
 }
 
 .about-item-label {
   font-weight: 600;
-  color: var(--primary-color);
-  margin-right: 0.5rem;
-  display: inline-block;
-  margin-bottom: 0.5rem;
-  text-align: left;
   font-size: 1.5rem;
+  color: #333;
+  display: block;
+}
+
+.feature-item-heading{
+  background-color: rgba(255, 255, 255, 1);
+  padding: 5px 10px;
+  max-width: fit-content;
+  border-radius: 5px;
 }
 
 .about-item-label i {
-  margin-right: 0.5rem;
+  color: #2a7d73;
+  margin-right: 8px;
+}
+
+.about-item p {
   font-size: 1rem;
+  line-height: 1.6; /* Reduced from 1.7 */
+  color: #555;
+  margin-top: 0.3rem; /* Reduced from 0.5rem */
 }
 
-.about-quote {
-  background: linear-gradient(135deg, rgba(93, 156, 236, 0.1) 0%, rgba(78, 205, 196, 0.1) 100%);
-  padding: 0.8rem 0.8rem 0.8rem 2.2rem;
-  border-radius: 8px;
-  border-left: 3px solid var(--primary-color);
-  margin-top: 0.3rem;
-  position: relative;
-  font-style: italic;
-}
-
-.about-quote::before {
-  content: "\201C";
-  position: absolute;
-  top: 0.4rem;
-  left: 0.6rem;
-  font-size: 2rem;
-  line-height: 1;
-  color: var(--primary-color);
-  font-family: serif;
-  opacity: 0.5;
-}
-
-.about-quote p {
-  font-style: italic;
-  font-size: 1.1rem;
-  color: var(--text-color);
-  margin: 0;
-  line-height: 1.5;
-}
-
-/* Mobile responsiveness for About section */
-@media (max-width: 768px) {
-  .about-section {
-    padding: 4rem 5%;
+/* Responsive styles for About Section */
+/* Large desktop and above */
+@media (min-width: 1200px) {
+  .about-section-content {
+    flex-wrap: nowrap;
+    gap: 2rem;
+    padding: 0 2rem;
+  }
+  
+  .about-images-grid {
+    height: 450px;
+    max-width: 550px;
+  }
+  
+  .about-content {
+    padding-right: 1rem;
   }
   
   .about-title {
-    font-size: 1.5rem;
+    font-size: 2.5rem;
   }
 }
 
-@media (max-width: 576px) {
-  .about-section {
-    padding: 3rem 5%;
+/* Desktop */
+@media (min-width: 992px) and (max-width: 1199px) {
+  .about-section-content {
+    flex-wrap: nowrap;
+    gap: 1.5rem;
   }
   
-  .about-label {
-    font-size: 0.8rem;
+  .about-images-grid {
+    height: 400px;
+    max-width: 500px;
   }
   
   .about-title {
-    font-size: 1.3rem;
+    font-size: 2.3rem;
+  }
+  
+  .about-item p {
+    font-size: 1rem;
+  }
+}
+
+/* Tablet landscape */
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .about-section {
+    padding: 2.5rem 0;
+  }
+  
+  .about-section-content {
+    flex-direction: column;
+    padding: 0 4rem;
+  }
+  
+  .about-images-grid {
+    max-width: 600px;
+    height: 380px;
+    margin: 0 auto 1.5rem;
+  }
+  
+  .about-content {
+    width: 100%;
+    margin-top: 1rem;
+  }
+  
+  .about-title {
+    font-size: 2.2rem;
+  }
+  
+  .about-item p {
+    font-size: 1rem;
+  }
+}
+
+/* Tablet portrait */
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .about-section {
+    padding: 2rem 0;
+  }
+  
+  .about-section-content {
+    flex-direction: column;
+    padding: 0 3rem;
+  }
+  
+  .about-images-grid {
+    max-width: 450px;
+    height: 350px;
+    margin: 0 auto 1.5rem;
+  }
+  
+  .about-content {
+    width: 100%;
+  }
+  
+  .about-header, 
+  .about-info {
+    text-align: center;
+  }
+  
+  .about-title {
+    font-size: 2rem;
   }
   
   .about-item-label {
-    font-size: 1rem;
+    text-align: center;
+  }
+  
+  .about-item p {
+    text-align: center;
+    font-size: 0.95rem;
+  }
+}
+
+/* Large mobile */
+@media (min-width: 480px) and (max-width: 575.98px) {
+  .about-section {
+    padding: 1.8rem 0;
+  }
+  
+  .about-section-content {
+    flex-direction: column;
+    padding: 0 2rem;
+  }
+  
+  .about-images-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    max-width: 280px;
+    height: 280px;
+    margin: 0 auto 1rem;
+    gap: 6px;
+  }
+  
+  .about-content {
+    width: 100%;
+  }
+  
+  .about-header, 
+  .about-info {
+    text-align: center;
+  }
+  
+  .about-title {
+    font-size: 1.9rem;
+    line-height: 1.3;
+  }
+  
+  .about-item-label {
+    font-size: 1.6rem;
+    text-align: center;
+  }
+  
+  .about-item p {
+    font-size: 0.9rem;
+    text-align: center;
+  }
+  
+  .about-image-wrapper {
+    margin: 4px;
+  }
+}
+
+@media (min-width: 480px) and (max-width: 575.98px) {
+  .about-images-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 8px;
+  }
+}
+
+/* Small mobile */
+@media (max-width: 479.98px) {
+  .about-section {
+    padding: 1.5rem 0;
+  }
+  
+  .about-section-content {
+    flex-direction: column;
+    padding: 0 1.2rem;
+  }
+  
+  .about-images-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    max-width: 280px;
+    height: 280px;
+    margin: 0 auto 1rem;
+    gap: 6px;
+  }
+  
+  .about-content {
+    width: 100%;
+  }
+  
+  .about-header, 
+  .about-info {
+    text-align: center;
+  }
+  
+  .about-title {
+    font-size: 1.8rem;
+    line-height: 1.3;
+  }
+  
+  .about-item-label {
+    font-size: 1.4rem;
+    text-align: center;
+    margin-bottom: 0.3rem;
+  }
+  
+  .about-item p {
+    font-size: 0.9rem;
+    text-align: center;
+    line-height: 1.5;
+  }
+  
+  .about-image-wrapper {
+    margin: 3px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .about-item {
+    margin-bottom: 1.2rem;
   }
 }
 
@@ -487,194 +718,101 @@
 .section-subtitle {
   color: var(--light-text);
   font-size: 1.2rem;
-  margin-top: 1rem;
+  margin-top: 1.5rem;
   max-width: 750px;
   margin-left: auto;
   margin-right: auto;
   line-height: 1.6;
   animation: fadeInUp 1s ease 0.2s forwards;
   opacity: 0;
+  text-transform: uppercase;
+}
+
+.section-subtitle .highlight-text {
+  position: relative;
+  color: #2a7d73;
+  font-weight: 700;
+  letter-spacing: 1px;
+  display: inline-block;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.section-subtitle .highlight-text:hover {
+  transform: translateY(-2px);
+  color: #3b6baa;
+}
+
+.section-subtitle .separator {
+  margin: 0 10px;
+  color: #888;
+  opacity: 0.7;
+  font-weight: 300;
 }
 
 .product-content {
   display: flex;
-  width: 100%;
-  position: relative;
+  flex-direction: row;
   align-items: stretch;
-  padding: 0;
-  margin-top: 2rem;
-  z-index: 1;
-}
-
-/* Product Carousel */
-.product-carousel {
-  width: 50%;
+  justify-content: space-between;
+  width: 100%;
+  padding: 20px 0;
+  margin: 0 auto;
   position: relative;
-  overflow: hidden;
-  border-radius: 24px;
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.12);
-  transition: all 0.5s ease;
-  opacity: 0;
-  animation: fadeInRight 1s ease 0.6s forwards;
+  min-height: 500px;
 }
 
-.product-carousel:hover {
-  transform: perspective(1000px) rotateY(0deg);
-}
-
-.carousel-container {
-  position: relative;
-  width: 100%;
-  height: 100%;
-}
-
-.carousel-slide {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  opacity: 0;
-  transition: opacity 0.5s ease-in-out;
-}
-
-.carousel-slide.active {
-  opacity: 1;
-}
-
-.carousel-slide img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 20px;
-  transition: transform 0.8s ease;
-}
-
-.carousel-slide.active img {
-  transform: scale(1.05);
-}
-
-.carousel-indicators {
-  position: absolute;
-  bottom: 2rem;
-  left: 50%;
-  transform: translateX(-50%);
+/* Specific for the product section */
+.tellyoudoc-offers-content {
   display: flex;
-  gap: 1rem;
-  z-index: 2;
-}
-
-.indicator {
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  background-color: rgba(255, 255, 255, 0.5);
-  border: 2px solid white;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  padding: 0;
-}
-
-.indicator.active {
-  background-color: white;
-  transform: scale(1.2);
-}
-
-.indicator:hover {
-  background-color: white;
-  transform: scale(1.2);
-}
-
-/* Product Image */
-.product-image {
-  width: 50%;
-  position: relative;
-  overflow: hidden;
-  border-radius: 24px;
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.12);
-  transition: all 0.5s ease;
-  opacity: 0;
-  animation: fadeInRight 1s ease 0.6s forwards;
-}
-
-.product-image img {
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: space-between;
   width: 100%;
+  padding: 20px 0;
+  margin: 0 auto;
+  position: relative;
+}
+
+.tellyoudoc-offers-content .feature-content {
+  flex: 1;
+  min-width: 300px;
+}
+
+.tellyoudoc-offers-content .about-images-grid {
+  flex: 1;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 10px;
   height: 100%;
-  object-fit: cover;
-  border-radius: 20px;
-  transition: transform 0.8s ease;
+  min-height: 450px;
+  margin: 0;
+  width: 100%;
 }
 
-.product-image:hover img {
-  transform: scale(1.05);
+.about-item-content {
+  display: flex;
+  margin-top: 10px;
+  margin-right: 10px;
+  flex-wrap: wrap;
 }
 
-/* About section specific image tilt */
-.about-section .product-image {
-  transform: perspective(1000px) rotateY(-5deg);
-  animation: fadeInLeft 1s ease forwards;
+.about-item-content div {
+  display: flex;
+  padding: 8px 15px;
+  margin: 5px 5px 5px 0;
+  transition: all 0.3s ease;
+  position: relative;
+  border-right: none;
+  justify-content: center;
+  align-items: center;
 }
 
-.about-section .product-image:hover {
-  transform: perspective(1000px) rotateY(0deg);
-}
-
-/* Product section specific image tilt */
-.product-section .product-carousel {
-  transform: perspective(1000px) rotateY(-5deg);
-}
-
-.product-section .product-carousel:hover {
-  transform: perspective(1000px) rotateY(0deg);
-}
-
-/* Responsive styles for product section */
-@media (max-width: 992px) {
-  .product-content {
-    flex-direction: column;
-    margin-left: 0;
-  }
-  
-  .product-carousel,
-  .product-image {
-    order: -1;
-    width: 100%;
-    aspect-ratio: 16/9;
-    margin-bottom: 2rem;
-  }
-  
-  .product-section .about-content,
-  .about-section .about-content {
-    width: 100%;
-  }
-  
-  .floating-features {
-    margin-left: 0;
-    margin-top: 1rem;
-    max-width: 100%;
-  }
-}
-
-@media (max-width: 768px) {
-  .product-section {
-    padding: 4rem 5%;
-  }
-}
-
-@media (max-width: 576px) {
-  .product-section {
-    padding: 3rem 5%;
-  }
-  
-  .carousel-indicators {
-    bottom: 1.5rem;
-  }
-}
-
-/* How It Works Section */
-.how-it-works-section {
-  padding: 5rem 5%;
-  background: linear-gradient(135deg, rgba(93, 156, 236, 0.05) 0%, rgba(78, 205, 196, 0.05) 100%);
+.about-item-content div:hover {
+  background-color: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+  transform: translateY(-2px);
+  cursor: pointer;
 }
 
 .how-it-works-container {
@@ -778,8 +916,9 @@
 
 .section-subtitle {
   color: var(--light-text);
-  font-size: 1.1rem;
-  margin-top: 1rem;
+  font-size: 1rem;
+  margin-top: 0.8rem;
+  margin-bottom: 3rem;
   text-align: center;
   max-width: 600px;
   margin-left: auto;
@@ -839,11 +978,21 @@
 
 /* Map and Form Section */
 .contact-main-section {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 3rem;
+  display: flex;
+  justify-content: center;
+  width: 100%;
   max-width: 1200px;
-  margin: 3rem auto;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+.contact-form {
+  width: 100%;
+  max-width: 800px;
+  background-color: #ffffff;
+  padding: 40px;
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
 .map-container {
@@ -861,13 +1010,6 @@
   height: 100%;
   border: none;
   display: block;
-}
-
-.contact-form {
-  background-color: white;
-  padding: 2rem;
-  border-radius: 12px;
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
 }
 
 .contact-form h3 {
@@ -1050,7 +1192,6 @@
 @media (max-width: 576px) {
   .hero-section {
     min-height: 80vh;
-    padding: 2rem 0;
   }
   
   .hero-title {
@@ -1102,12 +1243,52 @@
   
   .hero-text {
     width: 100%;
-    padding: 2rem;
+    padding: 1.5rem;
+    text-align: center;
+  }
+  
+  .mobile-container {
+    width: 360px;
+  }
+  
+  .mobile-phone-container {
+    width: 260px;
+    height: 520px;
+  }
+  
+  .feature-carousel-item:not(.carousel-active):not(.carousel-hidden) {
+    right: -80px;
+    width: 120px;
+    height: 240px;
+    top: 150px;
+  }
+  
+  .about-item-content div {
+    margin-bottom: 8px;
+    padding-bottom: 8px;
   }
 }
 
-/* Small devices (landscape phones, 576px and up) */
+/* Small devices (landscape phones, 576px to 767.98px) */
 @media (min-width: 576px) and (max-width: 767.98px) {
+  .hero-section {
+    min-height: 70vh;
+  }
+  
+  .hero-content-wrapper {
+    margin-left: 0;
+    padding: 0 1.5rem;
+    width: 100%;
+    justify-content: center;
+    margin-top: 3rem;
+  }
+  
+  .hero-text {
+    width: 100%;
+    padding: 1.5rem;
+    text-align: center;
+  }
+  
   .hero-title {
     font-size: 2.3rem;
   }
@@ -1135,8 +1316,26 @@
   }
 }
 
-/* Medium devices (tablets, 768px and up) */
+/* Medium devices (tablets, 768px to 991.98px) */
 @media (min-width: 768px) and (max-width: 991.98px) {
+  .hero-section {
+    min-height: 70vh;
+  }
+  
+  .hero-content-wrapper {
+    margin-left: 5%;
+    padding: 0 2rem;
+    width: 90%;
+    justify-content: flex-start;
+    margin-top: 3.5rem;
+  }
+  
+  .hero-text {
+    width: 80%;
+    padding: 2rem;
+    text-align: left;
+  }
+  
   .hero-title {
     font-size: 2.5rem;
   }
@@ -1156,15 +1355,39 @@
   }
 }
 
-/* Large devices (desktops, 992px and up) */
+/* Large screens (desktops, 992px and up) */
 @media (min-width: 992px) {
   .hero-title {
-    font-size: 3rem;
+    font-size: 3.5rem;
+    text-align: left;
   }
   
-  .about-content,
-  .how-it-works-container {
-    gap: 4rem;
+  .hero-content-wrapper {
+    margin-left: 7%;
+    width: 93%;
+    gap: 0;
+    margin-top: 4rem;
+  }
+  
+  .hero-text {
+    width: 50%;
+    padding: 2rem;
+    padding-left: 5rem;
+    text-align: left;
+  }
+  
+  .hero-space {
+    width: 50%;
+  }
+  
+  .hero-text .about-header,
+  .hero-text .about-info {
+    text-align: left !important;
+  }
+  
+  .hero-title::after {
+    left: 0;
+    transform: none;
   }
 }
 
@@ -1325,61 +1548,41 @@ img:hover {
 /* Responsive styles for contact section */
 @media (max-width: 992px) {
   .contact-main-section {
-    grid-template-columns: 1fr;
-    gap: 2rem;
-    padding: 0 2rem;
+    flex-direction: column;
+    gap: 40px;
+    max-width: 800px;
   }
-
-  .map-container {
-    aspect-ratio: 16/9;
-    order: 1;
-    min-height: 250px;
-  }
-
+  
   .contact-form {
-    order: 2;
+    width: 100%;
   }
 }
 
 @media (max-width: 768px) {
   .contact-section {
-    padding: 4rem 2rem;
+    padding: 60px 20px;
   }
-
+  
   .contact-main-section {
-    padding: 0 1rem;
-    gap: 2.5rem;
+    margin: 30px auto;
   }
-
-  .map-container {
-    aspect-ratio: 16/9;
-    min-height: 200px;
-  }
-
+  
   .contact-form {
-    padding: 1.5rem;
+    padding: 30px;
   }
 }
 
 @media (max-width: 576px) {
   .contact-section {
-    padding: 3rem 1rem;
+    padding: 40px 15px;
   }
-
+  
   .contact-main-section {
-    padding: 0;
-    gap: 2rem;
+    margin: 20px auto;
   }
-
-  .map-container {
-    border-radius: 8px;
-    aspect-ratio: 16/9;
-    min-height: 180px;
-  }
-
+  
   .contact-form {
-    padding: 1.2rem;
-    border-radius: 8px;
+    padding: 20px;
   }
 }
 
@@ -1455,10 +1658,17 @@ img:hover {
   }
 }
 
-@media (max-width: 576px) {
+@media (max-width: 575.98px) {
   .hero-section {
     min-height: 80vh;
-    padding: 2rem 0;
+  }
+  
+  .hero-content-wrapper {
+    margin-left: 0;
+    padding: 0 1rem;
+    width: 100%;
+    justify-content: center;
+    margin-top: 2.5rem;
   }
   
   .hero-title {
@@ -1493,14 +1703,6 @@ img:hover {
   .hero-cta .cta-button {
     padding: 12px 24px;
     font-size: 1rem;
-  }
-  
-  .hero-content-wrapper {
-    margin-left: 0;
-    padding: 0 1.5rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
   }
   
   .hero-background img {
@@ -1762,46 +1964,195 @@ img:hover {
 
 /* Patient Workflow Section */
 .patient-workflow-section {
-  padding: 5rem 5%;
-  background: #fff;
   position: relative;
+  padding: 50px 0; /* Reduced from 80px */
+  background-color: #f8f9fa;
   overflow: hidden;
 }
 
 .patient-workflow-section::before {
   content: '';
   position: absolute;
-  width: 400px;
-  height: 400px;
-  border-radius: 50%;
-  background: linear-gradient(45deg, rgba(78, 205, 196, 0.05) 0%, rgba(93, 156, 236, 0.05) 100%);
-  top: -200px;
-  left: -200px;
-  z-index: 0;
-  animation: float 15s ease-in-out infinite alternate;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* background-color: rgba(255, 255, 255, 0.8); */
+  z-index: 1;
 }
 
-.patient-workflow-section::after {
-  content: '';
+.patient-workflow-bg-images {
   position: absolute;
-  width: 350px;
-  height: 350px;
-  border-radius: 50%;
-  background: linear-gradient(45deg, rgba(93, 156, 236, 0.05) 0%, rgba(78, 205, 196, 0.05) 100%);
-  bottom: -150px;
-  right: -150px;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   z-index: 0;
-  animation: float 20s ease-in-out infinite alternate-reverse;
+}
+
+.patient-workflow-bg-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  z-index: 0;
+  opacity: 0;
+  transition: opacity 0.5s ease, transform 1.2s ease;
+  transform: translateX(100%); /* Start from right */
+  pointer-events: none;
+}
+
+.patient-workflow-bg-image.active {
+  opacity: 1;
+  transform: translateX(0); /* Centered when active */
+  z-index: 1;
+}
+
+.patient-workflow-bg-image.previous {
+  opacity: 0;
+  transform: translateX(-100%); /* Exit to left */
+  z-index: 0;
+  transition: opacity 0.5s ease, transform 1.2s ease;
 }
 
 .patient-workflow-content {
-  display: flex;
-  width: 100%;
   position: relative;
-  align-items: stretch;
-  padding: 0;
-  margin-top: 2rem;
-  z-index: 1;
+  z-index: 2;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 30px;
+  width: 100%;
+}
+
+.patient-workflow-info {
+  width: 50%;
+  padding: 1rem; /* Reduced from 2rem */
+  padding-right: 5%;
+  margin-left: auto; /* Pushes the content to the right */
+}
+
+.patient-workflow-info .about-text {
+  width: 100%;
+}
+
+.patient-workflow-info .about-info {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem; /* Further reduced from 1.3rem */
+}
+
+.patient-workflow-info .about-item {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  padding-left: 0;
+  margin-bottom: 0; /* Removed margin-bottom */
+}
+
+.patient-workflow-info .about-item-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.5rem; /* Reduced from 0.8rem */
+}
+
+.patient-workflow-info .about-item-counter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 3rem; /* Reduced from 3.5rem */
+  height: 3rem; /* Reduced from 3.5rem */
+  background-color: #2a7d73;
+  color: white;
+  font-size: 1.6rem; /* Reduced from 1.8rem */
+  font-weight: 700;
+  border-radius: 50%;
+  box-shadow: 0 4px 10px rgba(42, 125, 115, 0.3);
+  flex-shrink: 0;
+}
+
+.patient-workflow-info .about-item-title {
+  margin-left: 1rem; /* Reduced from 1.2rem */
+  font-size: 1.4rem; /* Reduced from 1.5rem */
+  font-weight: 600;
+  color: #333;
+}
+
+.patient-workflow-info .about-item-content {
+  font-size: 1rem; /* Reduced from 1.1rem */
+  line-height: 1.3; /* Further reduced from 1.4 */
+  color: #555;
+  padding-left: 4rem; /* Reduced from 4.7rem */
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.2rem 1rem; /* Further reduced vertical gap */
+}
+
+.patient-workflow-info .about-item-content .subtopic {
+  position: relative;
+  display: inline-block;
+}
+
+.patient-workflow-info .about-item-content .subtopic:not(:last-child)::after {
+  content: '|';
+  margin-left: 1rem;
+  color: #2a7d73;
+  opacity: 0.7;
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+  .patient-workflow-content {
+    flex-direction: column;
+    margin-left: 0;
+    justify-content: center;
+  }
+  
+  .patient-workflow-info {
+    width: 100%;
+    margin-left: 0;
+    padding-right: 2rem;
+  }
+  
+  .patient-workflow-info .about-item-counter {
+    width: 3rem;
+    height: 3rem;
+    font-size: 1.5rem;
+  }
+  
+  .patient-workflow-info .about-item-title {
+    font-size: 1.3rem;
+  }
+  
+  .patient-workflow-info .about-item-content {
+    padding-left: 4.2rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .patient-workflow-info .about-item-counter {
+    width: 2.8rem;
+    height: 2.8rem;
+    font-size: 1.4rem;
+  }
+  
+  .patient-workflow-info .about-item-title {
+    font-size: 1.1rem;
+  }
+  
+  .patient-workflow-info .about-item-content {
+    font-size: 0.95rem;
+    padding-left: 0;
+    margin-top: 0.8rem;
+  }
+  
+  .patient-workflow-info .about-item-header {
+    margin-bottom: 0.2rem;
+  }
 }
 
 .patient-workflow-carousel {
@@ -1815,171 +2166,1735 @@ img:hover {
   animation: fadeInLeft 1s ease 0.6s forwards;
   transform: perspective(1000px) rotateY(20deg);
   box-shadow: -10px 10px 30px rgba(0, 0, 0, 0.15);
+  display: none; /* Hide the carousel, only show info */
 }
 
-.patient-workflow-carousel:hover {
-  transform: perspective(1000px) rotateY(-15deg);
-  box-shadow: -15px 15px 30px rgba(0, 0, 0, 0.2);
-}
-
-.patient-workflow-carousel .carousel-slide {
-  transform-origin: right center;
-}
-
-.patient-workflow-carousel .carousel-slide img {
-  border-radius: 10px;
-  box-shadow: -10px 10px 20px rgba(0, 0, 0, 0.18);
-}
-
-.patient-workflow-info {
-  display: flex;
-  width: 50%;
-  padding: 2rem;
-  height: 100%;
-  position: relative;
-  z-index: 1;
-  padding-left: 2rem;
-}
-
+/* Responsive adjustments */
 @media (max-width: 992px) {
   .patient-workflow-content {
     flex-direction: column;
     margin-left: 0;
-  }
-  
-  .patient-workflow-carousel {
-    order: -1;
-    width: 100%;
-    aspect-ratio: 16/9;
-    margin-bottom: 2rem;
+    justify-content: center;
   }
   
   .patient-workflow-info {
     width: 100%;
+    margin-left: 0;
+    padding-right: 2rem;
   }
 }
 
 @media (max-width: 768px) {
   .patient-workflow-section {
-    padding: 4rem 5%;
+    padding: 3rem 5%; /* Reduced from 4rem 5% */
   }
 }
 
 @media (max-width: 576px) {
   .patient-workflow-section {
-    padding: 3rem 5%;
+    padding: 2.5rem 5%; /* Reduced from 3rem 5% */
   }
 }
 
 /* Doctor Workflow Section */
 .doctor-workflow-section {
-  padding: 5rem 5%;
-  background: linear-gradient(135deg, rgba(78, 205, 196, 0.05) 0%, rgba(93, 156, 236, 0.05) 100%);
   position: relative;
+  padding: 50px 0; /* Same as patient section */
+  background-color: #f8f9fa;
   overflow: hidden;
+  opacity: 1;
 }
 
 .doctor-workflow-section::before {
   content: '';
   position: absolute;
-  width: 400px;
-  height: 400px;
-  border-radius: 50%;
-  background: linear-gradient(45deg, rgba(78, 205, 196, 0.05) 0%, rgba(93, 156, 236, 0.05) 100%);
-  top: -200px;
-  right: -200px;
-  z-index: 0;
-  animation: float 15s ease-in-out infinite alternate;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* background-color: rgba(248, 249, 250, 0.85); */
+  z-index: 1;
 }
 
-.doctor-workflow-section::after {
-  content: '';
+.doctor-workflow-bg-images {
   position: absolute;
-  width: 350px;
-  height: 350px;
-  border-radius: 50%;
-  background: linear-gradient(45deg, rgba(93, 156, 236, 0.05) 0%, rgba(78, 205, 196, 0.05) 100%);
-  bottom: -150px;
-  left: -150px;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   z-index: 0;
-  animation: float 20s ease-in-out infinite alternate-reverse;
+}
+
+.doctor-workflow-bg-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  z-index: 0;
+  opacity: 0;
+  transition: opacity 0.5s ease, transform 1.2s ease;
+  transform: translateX(-100%); /* Reversed from patient section */
+  pointer-events: none;
+}
+
+.doctor-workflow-bg-image.active {
+  opacity: 1;
+  transform: translateX(0);
+  z-index: 1;
+}
+
+.doctor-workflow-bg-image.previous {
+  opacity: 0;
+  transform: translateX(100%); /* Reversed from patient section */
+  z-index: 0;
+  transition: opacity 0.5s ease, transform 1.2s ease;
 }
 
 .doctor-workflow-content {
+  position: relative;
+  z-index: 2;
   display: flex;
+  flex-direction: row;
+  justify-content: flex-start; /* Reversed from patient section */
+  align-items: center;
+  gap: 30px;
   width: 100%;
-  position: relative;
-  align-items: stretch;
-  padding: 0;
-  margin-top: 2rem;
-  z-index: 1;
-  flex-direction: row-reverse;
-}
-
-.doctor-workflow-carousel {
-  width: 50%;
-  position: relative;
-  overflow: hidden;
-  border-radius: 24px;
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.12);
-  transition: all 0.5s ease;
-  opacity: 0;
-  animation: fadeInRight 1s ease 0.6s forwards;
-  transform: perspective(1000px) rotateY(-20deg);
-  box-shadow: -10px 10px 30px rgba(0, 0, 0, 0.15);
-}
-
-.doctor-workflow-carousel:hover {
-  transform: perspective(1000px) rotateY(-10deg);
-  box-shadow: -15px 15px 30px rgba(0, 0, 0, 0.2);
-}
-
-.doctor-workflow-carousel .carousel-slide {
-  transform-origin: right center;
-}
-
-.doctor-workflow-carousel .carousel-slide img {
-  border-radius: 10px;
-  box-shadow: -10px 10px 20px rgba(0, 0, 0, 0.18);
 }
 
 .doctor-workflow-info {
-  display: flex;
   width: 50%;
-  padding: 2rem;
-  height: 100%;
-  position: relative;
-  z-index: 1;
-  padding-right: 2rem;
+  padding: 1rem;
+  padding-left: 5%; /* Reversed from patient section */
+  margin-right: auto; /* Reversed from patient section */
 }
 
+.doctor-workflow-info .about-text {
+  width: 100%;
+}
+
+.doctor-workflow-info .about-info {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.doctor-workflow-info .about-item {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  padding-left: 0;
+  margin-bottom: 0;
+}
+
+.doctor-workflow-info .about-item-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.doctor-workflow-info .about-item-counter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  height: 3rem;
+  background-color: #2a7d73;
+  color: white;
+  font-size: 1.6rem;
+  font-weight: 700;
+  border-radius: 50%;
+  box-shadow: 0 4px 10px rgba(42, 125, 115, 0.3);
+  flex-shrink: 0;
+}
+
+.doctor-workflow-info .about-item-title {
+  margin-left: 1rem;
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #333;
+}
+
+.doctor-workflow-info .about-item-content {
+  font-size: 1rem;
+  line-height: 1.3;
+  color: #555;
+  padding-left: 4rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.2rem 1rem;
+}
+
+.doctor-workflow-info .about-item-content .subtopic {
+  position: relative;
+  display: inline-block;
+}
+
+.doctor-workflow-info .about-item-content .subtopic:not(:last-child)::after {
+  content: '|';
+  margin-left: 1rem;
+  color: #2a7d73;
+  opacity: 0.7;
+}
+
+.doctor-workflow-section .section-header {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.doctor-workflow-section .section-header h2 {
+  color: #333;
+  font-weight: 700;
+  position: relative;
+  margin-bottom: 0.6rem;
+  z-index: 2;
+  text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.5);
+}
+
+.doctor-workflow-section .section-header .section-subtitle {
+  color: #555;
+  font-weight: 500;
+  max-width: 700px;
+  margin: 0 auto 1.5rem;
+  position: relative;
+  z-index: 2;
+  text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.3);
+}
+
+/* Responsive adjustments */
 @media (max-width: 992px) {
   .doctor-workflow-content {
     flex-direction: column;
-    margin-left: 0;
-  }
-  
-  .doctor-workflow-carousel {
-    order: -1;
-    width: 100%;
-    aspect-ratio: 16/9;
-    margin-bottom: 2rem;
+    margin-right: 0;
+    justify-content: center;
   }
   
   .doctor-workflow-info {
     width: 100%;
-    padding-right: 0;
+    margin-right: 0;
+    padding-left: 2rem;
+  }
+  
+  .doctor-workflow-info .about-item-counter {
+    width: 3rem;
+    height: 3rem;
+    font-size: 1.5rem;
+  }
+  
+  .doctor-workflow-info .about-item-title {
+    font-size: 1.3rem;
+  }
+  
+  .doctor-workflow-info .about-item-content {
+    padding-left: 4.2rem;
   }
 }
 
 @media (max-width: 768px) {
   .doctor-workflow-section {
-    padding: 4rem 5%;
+    padding: 3rem 5%;
   }
 }
 
 @media (max-width: 576px) {
   .doctor-workflow-section {
-    padding: 3rem 5%;
+    padding: 2.5rem 5%;
   }
-} 
+  
+  .doctor-workflow-info .about-item-counter {
+    width: 2.8rem;
+    height: 2.8rem;
+    font-size: 1.4rem;
+  }
+  
+  .doctor-workflow-info .about-item-title {
+    font-size: 1.1rem;
+  }
+  
+  .doctor-workflow-info .about-item-content {
+    font-size: 0.95rem;
+    padding-left: 0;
+    margin-top: 0.8rem;
+  }
+  
+  .doctor-workflow-info .about-item-header {
+    margin-bottom: 0.2rem;
+  }
+}
+
+/* Feature animation styles - adjust timing */
+.feature-animation {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1.5rem;
+  visibility: visible;
+}
+
+.feature-animation.active {
+  opacity: 1;
+  transform: translateY(0);
+  /* Slightly delay the container animation */
+  transition-delay: 0.15s; /* Slight delay for the container */
+}
+
+.feature-animation.hidden {
+  opacity: 0;
+  transform: translateY(-20px);
+  visibility: hidden;
+  transition: opacity 0.5s ease, transform 0.5s ease, visibility 0s 0.5s;
+}
+
+.feature-animation .about-item-label {
+  /* Set initial state for the heading */
+  transform: translateY(20px);
+  opacity: 0;
+  /* Increase animation duration for more relaxed motion */
+  transition: transform 0.9s ease-out, opacity 0.8s ease-out;
+  /* No transition delay here to make it appear immediately */
+}
+
+.feature-animation.active .about-item-label {
+  transform: translateY(0);
+  opacity: 1;
+  transition-delay: 0s; /* No delay, appear immediately when parent is active */
+}
+
+/* Animation for subfeatures - delay these to appear after headings */
+.subfeature-animation {
+  opacity: 0;
+  transform: translateY(15px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.8rem;
+  visibility: visible;
+}
+
+.subfeature-animation.subfeature-in {
+  opacity: 1;
+  transform: translateY(0);
+  /* Increase delay for subfeatures to appear after headings */
+  transition-delay: 1.2s; /* Delay subfeatures to appear after headings */
+}
+
+.subfeature-animation.hidden {
+  opacity: 0;
+  transform: translateY(-15px);
+  visibility: hidden;
+  transition: opacity 0.5s ease, transform 0.5s ease, visibility 0s 0.5s;
+}
+
+.feature-animation:nth-child(1) .subfeature-animation.subfeature-in {
+  transition-delay: 1.0s; /* Base delay for first feature's subfeatures */
+}
+
+.feature-animation:nth-child(2) .subfeature-animation.subfeature-in {
+  transition-delay: 1.2s; /* Base delay for second feature's subfeatures */
+}
+
+.feature-animation:nth-child(3) .subfeature-animation.subfeature-in {
+  transition-delay: 1.4s; /* Base delay for third feature's subfeatures */
+}
+
+.feature-animation:nth-child(4) .subfeature-animation.subfeature-in {
+  transition-delay: 1.6s; /* Base delay for fourth feature's subfeatures */
+}
+
+/* Individual subfeature delays */
+.feature-animation:nth-child(1) .subfeature-animation:nth-child(1).subfeature-in {
+  transition-delay: 0.7s;
+}
+
+.feature-animation:nth-child(1) .subfeature-animation:nth-child(2).subfeature-in {
+  transition-delay: 0.8s;
+}
+
+.feature-animation:nth-child(1) .subfeature-animation:nth-child(3).subfeature-in {
+  transition-delay: 0.9s;
+}
+
+.feature-animation:nth-child(2) .subfeature-animation:nth-child(1).subfeature-in {
+  transition-delay: 0.9s;
+}
+
+.feature-animation:nth-child(2) .subfeature-animation:nth-child(2).subfeature-in {
+  transition-delay: 1.0s;
+}
+
+.feature-animation:nth-child(2) .subfeature-animation:nth-child(3).subfeature-in {
+  transition-delay: 1.1s;
+}
+
+.feature-animation:nth-child(3) .subfeature-animation:nth-child(1).subfeature-in {
+  transition-delay: 1.1s;
+}
+
+.feature-animation:nth-child(3) .subfeature-animation:nth-child(2).subfeature-in {
+  transition-delay: 1.2s;
+}
+
+.feature-animation:nth-child(4) .subfeature-animation:nth-child(1).subfeature-in {
+  transition-delay: 1.3s;
+}
+
+.feature-animation:nth-child(4) .subfeature-animation:nth-child(2).subfeature-in {
+  transition-delay: 1.4s;
+}
+
+/* Add sequential delay for each feature's subfeatures */
+.feature-animation:nth-child(1) .subfeature-animation:nth-child(1).subfeature-in {
+  transition-delay: 0.7s; /* Base delay for first feature's subfeatures */
+}
+
+.feature-animation:nth-child(2) .subfeature-animation:nth-child(1).subfeature-in {
+  transition-delay: 0.9s; /* Base delay for second feature's subfeatures */
+}
+
+.feature-animation:nth-child(3) .subfeature-animation:nth-child(1).subfeature-in {
+  transition-delay: 1.1s; /* Base delay for third feature's subfeatures */
+}
+
+.feature-animation:nth-child(4) .subfeature-animation:nth-child(1).subfeature-in {
+  transition-delay: 1.3s; /* Base delay for fourth feature's subfeatures */
+}
+
+/* Sequential delay for each subfeature within a feature */
+.feature-animation:nth-child(1) .subfeature-animation:nth-child(1).subfeature-in {
+  transition-delay: 0.7s;
+}
+
+.feature-animation:nth-child(1) .subfeature-animation:nth-child(2).subfeature-in {
+  transition-delay: 0.8s;
+}
+
+.feature-animation:nth-child(1) .subfeature-animation:nth-child(3).subfeature-in {
+  transition-delay: 0.9s;
+}
+
+.feature-animation:nth-child(2) .subfeature-animation:nth-child(1).subfeature-in {
+  transition-delay: 0.9s;
+}
+
+.feature-animation:nth-child(2) .subfeature-animation:nth-child(2).subfeature-in {
+  transition-delay: 1.0s;
+}
+
+.feature-animation:nth-child(2) .subfeature-animation:nth-child(3).subfeature-in {
+  transition-delay: 1.1s;
+}
+
+.feature-animation:nth-child(3) .subfeature-animation:nth-child(1).subfeature-in {
+  transition-delay: 1.1s;
+}
+
+.feature-animation:nth-child(3) .subfeature-animation:nth-child(2).subfeature-in {
+  transition-delay: 1.2s;
+}
+
+.feature-animation:nth-child(4) .subfeature-animation:nth-child(1).subfeature-in {
+  transition-delay: 1.3s;
+}
+
+.feature-animation:nth-child(4) .subfeature-animation:nth-child(2).subfeature-in {
+  transition-delay: 1.4s;
+}
+
+/* Subfeature styling - more compact */
+.about-item-content {
+  margin-top: 6px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.about-item-content div {
+  color: #888;
+  position: relative;
+  padding: 4px 10px;
+  margin: 2px;
+  background-color: rgba(240, 240, 240, 0.5);
+  transition: all 0.2s ease;
+}
+
+.about-item-content div:hover {
+  transform: translateY(-1px);
+  color: #2a7d73;
+  background-color: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+  cursor: pointer;
+}
+
+/* Mobile container styling */
+.mobile-container {
+  position: relative;
+  width: 550px; /* Increased width to show waiting images clearly */
+  margin: 0 auto;
+  perspective: 1000px;
+  overflow: visible; /* Allow content to be visible outside container */
+  transform-style: preserve-3d;
+  z-index: 5;
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+  max-width: 50%;
+}
+
+/* Feature carousel item styles - enhanced positioning for clearer slide-in effect */
+.feature-carousel-item {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform 1.2s cubic-bezier(0.19, 1, 0.22, 1), 
+              opacity 0.8s cubic-bezier(0.19, 1, 0.22, 1);
+  opacity: 0;
+  will-change: transform, opacity;
+  z-index: 2;
+}
+
+/* Show the waiting item clearly outside the mobile to the right */
+.feature-carousel-item:not(.carousel-active):not(.carousel-hidden) {
+  opacity: 1; /* Full opacity for waiting image */
+  transform: none; /* Don't transform, position absolutely instead */
+  z-index: 5; /* Higher z-index to ensure visibility */
+  filter: blur(0);
+  pointer-events: none;
+  position: absolute;
+  right: -220px; /* Position further outside the phone on the right */
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+  width: 180px; /* Fixed width for the waiting image */
+  height: 360px; /* Fixed height for the waiting image */
+  top: 140px; /* Position it vertically centered */
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Waiting image specific styling */
+.feature-carousel-item:not(.carousel-active):not(.carousel-hidden) .carousel-image {
+  width: 95%;
+  height: 95%;
+  object-fit: contain;
+  opacity: 1;
+  border-radius: 15px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* Add an arrow indicator from waiting image to phone */
+.feature-carousel-item:not(.carousel-active):not(.carousel-hidden)::before {
+  content: '→';
+  position: absolute;
+  font-size: 24px;
+  color: #2a7d73;
+  left: -30px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 0.5;
+    transform: translateY(-50%) scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(-50%) scale(1.2);
+  }
+  100% {
+    opacity: 0.5;
+    transform: translateY(-50%) scale(1);
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+  .feature-carousel-item:not(.carousel-active):not(.carousel-hidden) {
+    right: -180px;
+    width: 160px;
+    height: 320px;
+  }
+}
+
+@media (max-width: 768px) {
+  .feature-carousel-item:not(.carousel-active):not(.carousel-hidden) {
+    right: -150px;
+    width: 140px; 
+    height: 280px;
+  }
+}
+
+@media (max-width: 576px) {
+  .feature-carousel-item:not(.carousel-active):not(.carousel-hidden) {
+    right: -110px;
+    width: 100px;
+    height: 200px;
+    top: 170px;
+  }
+  
+  .feature-carousel-item:not(.carousel-active):not(.carousel-hidden)::before {
+    font-size: 18px;
+    left: -20px;
+  }
+}
+
+/* Mobile phone container with thinner bezel */
+.mobile-phone-container {
+  position: relative;
+  height: 640px;
+  width: 300px;
+  overflow: hidden;
+  border-radius: 40px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2), 0 8px 15px rgba(0, 0, 0, 0.1);
+  background-color: #000;
+  transform: translateX(0) rotateY(0deg);
+  transition: transform 0.5s ease-out, box-shadow 0.5s ease;
+  border: 1px solid #222; /* Even thinner border for more bezel-less look */
+  will-change: transform, box-shadow;
+  margin: 0 auto;
+}
+
+/* Mobile phone floating animation */
+@keyframes phone-float {
+  0% {
+    transform: translateY(0) rotateY(0deg);
+  }
+  50% {
+    transform: translateY(-10px) rotateY(3deg);
+  }
+  100% {
+    transform: translateY(5px) rotateY(-1deg);
+  }
+}
+
+/* Mobile phone hover effect */
+.mobile-container:hover .mobile-phone-container {
+  box-shadow: 0 35px 60px rgba(0, 0, 0, 0.3), 0 15px 30px rgba(0, 0, 0, 0.2);
+  animation-play-state: paused;
+}
+
+/* Dynamic island notch */
+.mobile-phone-container::before {
+  content: '';
+  position: absolute;
+  width: 100px;
+  height: 30px;
+  background-color: #000;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 25px;
+  z-index: 10;
+  box-shadow: 0 0 0 1px rgba(40, 40, 40, 0.3);
+}
+
+/* Modern home indicator - thin line at bottom */
+.mobile-phone-container::after {
+  content: '';
+  position: absolute;
+  width: 100px;
+  height: 4px;
+  background-color: rgba(255, 255, 255, 0.7);
+  bottom: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 2px;
+  z-index: 10;
+}
+
+/* Add side button styling */
+.mobile-phone-container .power-button {
+  position: absolute;
+  width: 2px;
+  height: 50px;
+  background-color: #333;
+  right: -3px;
+  top: 120px;
+  border-radius: 1px;
+  z-index: 5;
+}
+
+.mobile-phone-container .volume-up {
+  position: absolute;
+  width: 2px;
+  height: 35px;
+  background-color: #333;
+  left: -3px;
+  top: 100px;
+  border-radius: 1px;
+  z-index: 5;
+}
+
+.mobile-phone-container .volume-down {
+  position: absolute;
+  width: 2px;
+  height: 35px;
+  background-color: #333;
+  left: -3px;
+  top: 150px;
+  border-radius: 1px;
+  z-index: 5;
+}
+
+/* Bezel-less screen styling */
+.mobile-screen {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  border-radius: 38px; /* Slightly smaller than container to create thin bezel */
+  background: linear-gradient(135deg, #0a0a0a, #1a1a1a);
+}
+
+/* Add subtle screen reflection effect */
+.mobile-screen::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 60%;
+  background: linear-gradient(to bottom, 
+               rgba(255, 255, 255, 0.03) 0%, 
+               rgba(255, 255, 255, 0) 100%);
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* External feature indicators */
+.external-feature-indicators {
+  position: absolute;
+  right: -25px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  z-index: 3;
+}
+
+.external-indicator {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: rgba(42, 125, 115, 0.3);
+  transition: all 0.3s ease;
+}
+
+.external-indicator.next-up {
+  transform: scale(1.5);
+  background-color: rgba(42, 125, 115, 0.8);
+  box-shadow: 0 0 10px rgba(42, 125, 115, 0.5);
+}
+
+/* Responsive adjustments for the animation */
+@media (max-width: 992px) {
+  .external-feature-indicators {
+    display: none; /* Hide indicators on mobile */
+  }
+  
+  .feature-carousel-item:not(.carousel-active):not(.carousel-hidden) {
+    transform: translateX(100%) scale(0.9);
+    right: -180px;
+  }
+  
+  @keyframes slide-into-phone {
+    0% {
+      transform: translateX(100%) scale(0.9);
+      opacity: 0.95;
+    }
+    100% {
+      transform: translateX(0) scale(1);
+      opacity: 1;
+    }
+  }
+}
+
+/* Active slide styling */
+.feature-carousel-item.carousel-active {
+  opacity: 1;
+  transform: translateX(0);
+  z-index: 2;
+  filter: blur(0);
+  animation: simple-slide-in 1s ease-in-out forwards;
+}
+
+/* Simpler, cleaner slide-in animation */
+@keyframes simple-slide-in {
+  0% {
+    transform: translateX(100%);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* Hidden slides */
+.feature-carousel-item.carousel-hidden {
+  opacity: 0;
+  transform: translateX(-100%);
+  z-index: 1;
+  transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
+/* Image styling */
+.carousel-image {
+  max-width: 90%;
+  max-height: 90%;
+  object-fit: contain;
+  border-radius: 8px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+  transition: all 0.5s ease;
+}
+
+/* Add modern screen glare effect */
+.feature-carousel-item::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(
+    circle at center,
+    rgba(255, 255, 255, 0.03) 0%,
+    rgba(255, 255, 255, 0) 70%
+  );
+  pointer-events: none;
+  z-index: 3;
+  opacity: 0.5;
+}
+
+/* TellYouDoc Offers Section - specific responsive styles */
+.tellyoudoc-offers-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 3rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.tellyoudoc-offers-content .feature-content {
+  width: 100%;
+  margin-bottom: 2rem;
+  opacity: 0; /* Initialize as invisible for animation */
+}
+
+.tellyoudoc-offers-content .about-header,
+.tellyoudoc-offers-content .about-info {
+  margin-bottom: 1.5rem;
+}
+
+.tellyoudoc-offers-content .mobile-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  opacity: 0; /* Initialize as invisible for animation */
+}
+
+/* Responsive styles for TellYouDoc Offers section */
+@media (min-width: 992px) {
+  .tellyoudoc-offers-content {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: stretch;
+    max-width: 1200px;
+    margin: 3rem auto 0;
+    padding: 0 1rem;
+  }
+
+  .tellyoudoc-offers-content .feature-content {
+    width: 48%;
+    flex: 1;
+    padding-right: 20px;
+  }
+  
+  .tellyoudoc-offers-content .about-images-grid {
+    width: 48%; 
+    flex: 1;
+    height: 100%;
+    min-height: 480px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .tellyoudoc-offers-content {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: stretch;
+    gap: 20px;
+  }
+  
+  .tellyoudoc-offers-content .feature-content {
+    width: 48%;
+    flex: 1;
+  }
+  
+  .tellyoudoc-offers-content .about-images-grid {
+    width: 48%;
+    flex: 1;
+    height: 100%;
+    min-height: 450px;
+  }
+  
+  .tellyoudoc-offers-content .about-header,
+  .tellyoudoc-offers-content .about-info {
+    margin-bottom: 1rem;
+  }
+  
+  .tellyoudoc-offers-content .feature-animation .about-item-label {
+    font-size: 1rem;
+  }
+}
+
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .tellyoudoc-offers-content {
+    flex-direction: column;
+  }
+  
+  .tellyoudoc-offers-content .feature-content {
+    width: 100%;
+    margin-bottom: 2rem;
+  }
+  
+  .tellyoudoc-offers-content .mobile-container {
+    width: 100%;
+    margin-top: 2rem;
+  }
+  
+  .tellyoudoc-offers-content .about-images-grid {
+    width: 100%;
+    min-height: 400px;
+    margin: 0 auto;
+  }
+  
+  .tellyoudoc-offers-content .about-header,
+  .tellyoudoc-offers-content .about-info {
+    margin-bottom: 1rem;
+  }
+  
+  .tellyoudoc-offers-content .feature-animation .about-item-label {
+    font-size: 1rem;
+  }
+  
+  .tellyoudoc-offers-content .mobile-phone-container {
+    transform: scale(0.9);
+  }
+}
+
+@media (max-width: 575.98px) {
+  .tellyoudoc-offers-content {
+    flex-direction: column;
+  }
+  
+  .tellyoudoc-offers-content .feature-content {
+    width: 100%;
+    margin-bottom: 1.5rem;
+  }
+  
+  .tellyoudoc-offers-content .mobile-container {
+    width: 100%;
+    margin-top: 2rem;
+  }
+  
+  .tellyoudoc-offers-content .about-images-grid {
+    width: 100%;
+    min-height: 350px;
+    margin: 0 auto;
+  }
+  
+  .tellyoudoc-offers-content .about-header,
+  .tellyoudoc-offers-content .about-info {
+    margin-bottom: 1rem;
+  }
+  
+  .tellyoudoc-offers-content .feature-animation .about-item-label {
+    font-size: 0.9rem;
+    line-height: 1.4;
+  }
+  
+  .tellyoudoc-offers-content .mobile-phone-container {
+    transform: scale(0.8);
+  }
+  
+  .tellyoudoc-offers-content .about-item-content div {
+    font-size: 0.9rem;
+  }
+}
+
+.patient-workflow-section .section-header {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  margin-bottom: 2rem; /* Reduced from 3rem */
+}
+
+.patient-workflow-section .section-header h2 {
+  color: #333;
+  font-weight: 700;
+  position: relative;
+  margin-bottom: 0.6rem; /* Reduced from 1rem */
+  z-index: 2;
+  text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.5);
+}
+
+.patient-workflow-section .section-header .section-subtitle {
+  color: #555;
+  font-weight: 500;
+  max-width: 700px;
+  margin: 0 auto 1.5rem; /* Reduced from 2rem */
+  position: relative;
+  z-index: 2;
+  text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.3);
+}
+
+/* Add new slide-in animations for product section */
+@keyframes slideInFromLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-150%); /* Start from extreme left */
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInFromRight {
+  from {
+    opacity: 0;
+    transform: translateX(150%); /* Start from extreme right */
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Add animation trigger styles */
+.tellyoudoc-offers-content .feature-content,
+.tellyoudoc-offers-content .mobile-container {
+  opacity: 0;
+}
+
+.tellyoudoc-offers-content.animate-section .feature-content {
+  animation: slideInFromLeft 1.2s ease-out forwards;
+}
+
+.tellyoudoc-offers-content.animate-section .mobile-container {
+  animation: slideInFromRight 1.2s ease-out forwards;
+}
+
+/* Add a slight delay to the mobile container animation for better effect */
+.tellyoudoc-offers-content.animate-section .mobile-container {
+  animation-delay: 0.3s;
+}
+
+/* Update media queries to maintain animation settings */
+@media (min-width: 992px) {
+  .tellyoudoc-offers-content {
+    flex-direction: row;
+    max-width: 1200px;
+    margin: 3rem auto 0;
+    padding: 0 1rem;
+  }
+  
+  .tellyoudoc-offers-content .feature-content,
+  .tellyoudoc-offers-content .mobile-container {
+    width: 48%;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .tellyoudoc-offers-content.animate-section .feature-content {
+    animation: slideInFromLeft 1.2s ease-out forwards;
+  }
+  
+  .tellyoudoc-offers-content.animate-section .mobile-container {
+    animation: slideInFromRight 1.2s ease-out forwards;
+    animation-delay: 0.3s;
+  }
+}
+
+@media (min-width: 576px) and (max-width: 767.98px) {  
+  .tellyoudoc-offers-content.animate-section .feature-content {
+    animation: slideInFromLeft 1.2s ease-out forwards;
+  }
+  
+  .tellyoudoc-offers-content.animate-section .mobile-container {
+    animation: slideInFromRight 1.2s ease-out forwards;
+    animation-delay: 0.3s;
+  }
+}
+
+@media (max-width: 575.98px) {  
+  .tellyoudoc-offers-content.animate-section .feature-content {
+    animation: slideInFromLeft 1.2s ease-out forwards;
+  }
+  
+  .tellyoudoc-offers-content.animate-section .mobile-container {
+    animation: slideInFromRight 1.2s ease-out forwards;
+    animation-delay: 0.3s;
+  }
+}
+
+/* New Feature Images Animation Styles */
+.feature-images-container {
+  position: relative;
+  width: 100%;
+  height: 550px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: visible; /* Changed from hidden to allow slide out to be visible */
+}
+
+.feature-image-item {
+  position: absolute;
+  width: 280px;
+  height: 500px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  border-radius: 20px;
+  overflow: hidden;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateX(100vw); /* Default start position off-screen right */
+  transition: all 0.6s ease-out; /* Add smooth transition for all properties */
+  left: 50%;
+  margin-left: -140px; /* Half of the width */
+}
+
+.feature-image-item.active {
+  transform: translateX(0);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.feature-image-item.active.exiting {
+  transform: translateX(100vw);
+  opacity: 0;
+  transition: all 1.2s ease-in;
+}
+
+/* For overlapping animations */
+.feature-image-item:nth-child(1).active {
+  transform: translateX(0);
+  z-index: 10;
+}
+
+.feature-image-item:nth-child(2).active {
+  transform: translateX(20px);
+  z-index: 20;
+}
+
+.feature-image-item:nth-child(3).active {
+  transform: translateX(40px);
+  z-index: 30;
+}
+
+.feature-image-item:nth-child(4).active {
+  transform: translateX(60px);
+  z-index: 40;
+}
+
+.feature-image-item.hidden {
+  opacity: 0;
+  pointer-events: none;
+  transform: translateX(100vw); /* Ensure hidden items are off-screen */
+}
+
+.feature-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 15px;
+}
+
+/* Large screen animations */
+@media (min-width: 992px) {
+  /* Override all animation related properties */
+  .feature-image-item.active {
+    opacity: 1;
+    pointer-events: auto;
+    animation-name: slide-right;
+    animation-duration: 5s;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards !important;
+    z-index: 10;
+  }
+  
+  /* Remove special animation for last item */
+  /* .feature-image-item.animation-3.active {
+    animation-name: zoom-right;
+  } */
+  
+  /* Standard slide right animation */
+  @keyframes slide-right {
+    0% {
+      transform: translateX(100vw); /* Start from far right */
+      opacity: 0;
+    }
+    15% {
+      transform: translateX(0); /* Center position */
+      opacity: 1;
+    }
+    100% { 
+      transform: translateX(0); /* Stay in center */
+      opacity: 1;
+    }
+  }
+  
+  /* Zoom right animation */
+  @keyframes zoom-right {
+    0% {
+      transform: translateX(100vw) scale(0.5);
+      opacity: 0;
+    }
+    15% {
+      transform: translateX(0) scale(0.8);
+      opacity: 0.8;
+    }
+    25% {
+      transform: translateX(0) scale(1.2);
+      opacity: 1;
+    }
+    35% {
+      transform: translateX(0) scale(1);
+      opacity: 1;
+    }
+    100% {
+      transform: translateX(0) scale(1);
+      opacity: 1;
+    }
+  }
+}
+
+/* Small screen animations */
+@media (max-width: 991px) {
+  /* Change default position for small screens */
+  .feature-image-item {
+    transform: translateY(100vh); /* Start from bottom */
+  }
+  
+  .feature-image-item.hidden {
+    transform: translateY(100vh); /* Hidden at bottom */
+  }
+  
+  /* Active state - slide in */
+  .feature-image-item.active {
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: auto;
+    z-index: 10;
+    /* Fast slide in */
+    transition: transform 0.8s ease-out, opacity 0.6s ease-out;
+  }
+  
+  /* Exiting state - slide out */
+  .feature-image-item.active.exiting {
+    transform: translateY(-100vh); /* Exit to top instead of bottom */
+    opacity: 0;
+    /* Slower slide out so it's more visible */
+    transition: transform 1.5s ease-in, opacity 1s ease-in;
+  }
+  
+  /* Remove special animation for item 3 */
+  /* .feature-image-item.animation-3.active {
+    transform: translateY(0) scale(1);
+    transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.6s ease-out;
+  }
+  
+  .feature-image-item.animation-3.hidden {
+    transform: translateY(-100vh) scale(0.5);
+  }
+  
+  .feature-image-item.animation-3.active.exiting {
+    transform: translateY(-100vh) scale(0.5);
+    transition: transform 1.5s ease-in, opacity 1s ease-in;
+  } */
+}
+
+/* Adjust sizes for different screen sizes */
+@media (max-width: 768px) {
+  .feature-images-container {
+    height: 400px;
+  }
+  
+  .feature-image-item {
+    width: 220px;
+    height: 380px;
+  }
+}
+
+@media (max-width: 576px) {
+  .feature-images-container {
+    height: 350px;
+  }
+  
+  .feature-image-item {
+    width: 180px;
+    height: 320px;
+  }
+}
+
+/* Layout adjustments for feature sections */
+.tellyoudoc-offers-content {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+@media (min-width: 992px) {
+  .tellyoudoc-offers-content {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 3rem auto 0;
+    padding: 0 1rem;
+  }
+
+  .tellyoudoc-offers-content .feature-content,
+  .tellyoudoc-offers-content .feature-images-container {
+    width: 48%;
+  }
+}
+
+/* Small screen layout adjustments */
+@media (max-width: 991px) {
+  /* Change product layout for mobile */
+  .product-content {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .feature-content,
+  .feature-images-container {
+    width: 100%;
+  }
+
+  /* Reorder sections - images first (top), then content */
+  .feature-content {
+    order: 2;
+  }
+
+  .feature-images-container {
+    order: 1;
+    height: 450px;
+    margin-bottom: 20px;
+  }
+}
+
+/* Hide mobile container */
+.mobile-container {
+  display: none;
+}
+
+/* Feature Image Animations with new exiting state */
+
+/* Common styles for all feature images */
+.feature-image-item {
+  position: absolute;
+  width: 280px;
+  height: 500px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  border-radius: 20px;
+  overflow: hidden;
+  opacity: 0;
+  pointer-events: none;
+  /* No default transforms that might conflict */
+}
+
+/* Large screen animations (desktop) */
+@media (min-width: 992px) {
+  /* Inactive/hidden state */
+  .feature-image-item.hidden {
+    transform: translateX(100vw);
+    opacity: 0;
+    transition: none;
+  }
+  
+  /* Active state - slide in */
+  .feature-image-item.active {
+    transform: translateX(0);
+    opacity: 1;
+    pointer-events: auto;
+    z-index: 10;
+    /* Fast slide in */
+    transition: transform 0.8s ease-out, opacity 0.6s ease-out;
+  }
+  
+  /* Exiting state - slide out */
+  .feature-image-item.active.exiting {
+    transform: translateX(100vw);
+    opacity: 0;
+    /* Slower slide out so it's more visible */
+    transition: transform 1.5s ease-in, opacity 1s ease-in;
+  }
+  
+  /* Special animation for item 3 */
+  .feature-image-item.animation-3.active {
+    transform: translateX(0) scale(1);
+    transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.6s ease-out;
+  }
+  
+  .feature-image-item.animation-3.hidden {
+    transform: translateX(100vw) scale(0.5);
+  }
+  
+  .feature-image-item.animation-3.active.exiting {
+    transform: translateX(100vw) scale(0.5);
+    transition: transform 1.5s ease-in, opacity 1s ease-in;
+  }
+}
+
+/* Small screen animations (mobile) */
+@media (max-width: 991px) {
+  /* Inactive/hidden state */
+  .feature-image-item.hidden {
+    transform: translateY(100vh); /* Hidden at bottom */
+    opacity: 0;
+    transition: none;
+  }
+  
+  /* Active state - slide in */
+  .feature-image-item.active {
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: auto;
+    z-index: 10;
+    /* Fast slide in */
+    transition: transform 0.8s ease-out, opacity 0.6s ease-out;
+  }
+  
+  /* Exiting state - slide out */
+  .feature-image-item.active.exiting {
+    transform: translateY(100vh); /* Exit to bottom */
+    opacity: 0;
+    /* Slower slide out so it's more visible */
+    transition: transform 1.5s ease-in, opacity 1s ease-in;
+  }
+  
+  /* Special animation for item 3 */
+  .feature-image-item.animation-3.active {
+    transform: translateY(0) scale(1);
+    transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.6s ease-out;
+  }
+  
+  .feature-image-item.animation-3.hidden {
+    transform: translateY(100vh) scale(0.5); /* Start at bottom */
+  }
+  
+  .feature-image-item.animation-3.active.exiting {
+    transform: translateY(100vh) scale(0.5); /* Exit to bottom */
+    transition: transform 1.5s ease-in, opacity 1s ease-in;
+  }
+}
+
+/* Adjust sizes for different screen sizes */
+@media (max-width: 768px) {
+  .feature-images-container {
+    height: 400px;
+  }
+  
+  .feature-image-item {
+    width: 220px;
+    height: 380px;
+  }
+}
+
+@media (max-width: 576px) {
+  .feature-images-container {
+    height: 350px;
+  }
+  
+  .feature-image-item {
+    width: 180px;
+    height: 320px;
+  }
+}
+
+/* Add these styles for the about images animation */
+.about-image-wrapper {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  margin: 5px;
+  aspect-ratio: 1 / 1;
+}
+
+.about-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+  transition: all 0.5s ease;
+}
+
+/* Animation base classes with fixed dimensions */
+.sliding-out-left,
+.sliding-in-left,
+.sliding-out-right,
+.sliding-in-right,
+.sliding-out-top,
+.sliding-in-top,
+.sliding-out-bottom,
+.sliding-in-bottom,
+.fading-out,
+.fading-in {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transition: transform 1.25s cubic-bezier(0.25, 0.1, 0.25, 1), opacity 1.25s ease;
+}
+
+.sliding-out-left {
+  animation: slideOutLeft 1.2s cubic-bezier(0.6, 0.01, 0.05, 1) forwards;
+}
+
+.sliding-in-left {
+  animation: slideInRight 1.2s cubic-bezier(0.6, 0.01, 0.05, 1) forwards;
+}
+
+.sliding-out-right {
+  animation: slideOutRight 1.2s cubic-bezier(0.6, 0.01, 0.05, 1) forwards;
+}
+
+.sliding-in-right {
+  animation: slideInLeft 1.2s cubic-bezier(0.6, 0.01, 0.05, 1) forwards;
+}
+
+.sliding-out-top {
+  animation: slideOutTop 1.2s cubic-bezier(0.6, 0.01, 0.05, 1) forwards;
+}
+
+.sliding-in-top {
+  animation: slideInBottom 1.2s cubic-bezier(0.6, 0.01, 0.05, 1) forwards;
+}
+
+.sliding-out-bottom {
+  animation: slideOutBottom 1.2s cubic-bezier(0.6, 0.01, 0.05, 1) forwards;
+}
+
+.sliding-in-bottom {
+  animation: slideInTop 1.2s cubic-bezier(0.6, 0.01, 0.05, 1) forwards;
+}
+
+.fading-out {
+  animation: fadeOut 1.2s cubic-bezier(0.6, 0.01, 0.05, 1) forwards;
+}
+
+.fading-in {
+  animation: fadeIn 1.2s cubic-bezier(0.6, 0.01, 0.05, 1) forwards;
+}
+
+@keyframes slideOutLeft {
+  from {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideOutRight {
+  from {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideOutTop {
+  from {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+}
+
+@keyframes slideInBottom {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideOutBottom {
+  from {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+}
+
+@keyframes slideInTop {
+  from {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Animation classes for images */
+.sliding-out-left,
+.sliding-out-right,
+.sliding-out-top,
+.sliding-out-bottom,
+.sliding-in-left,
+.sliding-in-right,
+.sliding-in-top,
+.sliding-in-bottom,
+.fading-out,
+.fading-in {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+  transform-origin: center center;
+  will-change: transform, opacity;
+  backface-visibility: hidden;
+  transition: transform 1.25s cubic-bezier(0.25, 0.1, 0.25, 1), opacity 1.25s ease;
+}
+
+.sliding-out-left {
+  animation: slideOutLeft 1.25s forwards;
+}
+
+.sliding-in-left {
+  animation: slideInRight 1.25s forwards;
+}
+
+.sliding-out-right {
+  animation: slideOutRight 1.25s forwards;
+}
+
+.sliding-in-right {
+  animation: slideInLeft 1.25s forwards;
+}
+
+.sliding-out-top {
+  animation: slideOutTop 1.25s forwards;
+}
+
+.sliding-in-top {
+  animation: slideInBottom 1.25s forwards;
+}
+
+.sliding-out-bottom {
+  animation: slideOutBottom 1.25s forwards;
+}
+
+.sliding-in-bottom {
+  animation: slideInTop 1.25s forwards;
+}
+
+.fading-out {
+  animation: fadeOut 1.25s forwards;
+}
+
+.fading-in {
+  animation: fadeIn 1.25s forwards;
+}
+
+.tellyoudoc-offers-content.animate-section .feature-content {
+  animation: slideInFromLeft 1.2s ease-out forwards;
+}
+
+.tellyoudoc-offers-content.animate-section .about-images-grid {
+  animation: slideInFromRight 1.2s ease-out forwards;
+  animation-delay: 0.3s;
+}
+
+/* Add a slight delay to the about-images-grid animation for better effect */
+.tellyoudoc-offers-content.animate-section .about-images-grid {
+  animation-delay: 0.3s;
+}

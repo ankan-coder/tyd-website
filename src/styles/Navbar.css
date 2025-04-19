@@ -3,7 +3,7 @@
   justify-content: space-between;
   align-items: center;
   padding: 0.2rem 4%;
-  background: linear-gradient(135deg, rgba(78, 205, 196, 0.95), rgba(93, 156, 236, 0.95));
+  background: #ffffff;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   position: fixed;
   top: 0;
@@ -16,7 +16,6 @@
 
 .navbar.scrolled {
   padding: 0.2rem 4%;
-  background: #ffffff;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
   height: 90px;
 }
@@ -61,7 +60,8 @@
 }
 
 .nav-links a {
-  color: var(--white);
+  /* color: var(--white); */
+  color: #000000;
   font-weight: 500;
   position: relative;
   padding: 5px 0;
@@ -69,7 +69,7 @@
 }
 
 .nav-links a:hover {
-  color: #ffffff;
+  color: var(--primary-color);
   transform: translateY(-2px);
 }
 
@@ -110,7 +110,7 @@
   display: block;
   height: 2px;
   width: 100%;
-  background-color: var(--white);
+  background-color: var(--primary-color);
   border-radius: 2px;
   transition: all 0.3s ease;
 }
@@ -234,7 +234,8 @@
     font-size: 1.1rem;
     width: 100%;
     padding: 12px 0;
-    color: var(--text-color);
+    /* color: var(--text-color); */
+    color: #000000;
     font-weight: 500;
     border-bottom: 1px solid rgba(0, 0, 0, 0.05);
     display: block;

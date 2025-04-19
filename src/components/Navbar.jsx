@@ -106,15 +106,6 @@ const Navbar = () => {
           About Us
         </a>
         <a
-          href="/#product"
-          onClick={(e) => {
-            e.preventDefault();
-            scrollToSection("product");
-          }}
-        >
-          Product
-        </a>
-        <a
           href="/#founders"
           onClick={(e) => {
             e.preventDefault();
