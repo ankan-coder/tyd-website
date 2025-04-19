@@ -288,8 +288,7 @@ const Partner = () => {
 
     try {
       const response = await axios.post(
-        // "https://api.tellyoudoc.com/api/v1/beta-partner/register",
-        "http://172.16.14.112:3000/api/v1/beta-partner/register",
+        "https://api.tellyoudoc.com/api/v1/beta-partner/register",
         formData
       );
 

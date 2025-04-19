@@ -30,8 +30,6 @@ import productImageUrl6 from "../assets/images/product/pr6.jpg";
 import productImageUrl7 from "../assets/images/product/pr7.jpg";
 import productImageUrl8 from "../assets/images/product/pr8.jpg";
 
-
-
 // Doctor Image
 import doctorImageUrl from "../assets/images/dr-soumen-das.png";
 
@@ -70,7 +68,9 @@ const Home = () => {
 
   // About section image carousel states
   const [aboutImagePositions, setAboutImagePositions] = useState([0, 1, 2, 3]);
-  const [productImagePositions, setProductImagePositions] = useState([0, 1, 2, 3]);
+  const [productImagePositions, setProductImagePositions] = useState([
+    0, 1, 2, 3,
+  ]);
   const [slidingImages, setSlidingImages] = useState({});
   const [newImages, setNewImages] = useState({});
   const [animationTypes, setAnimationTypes] = useState({});
@@ -891,7 +891,7 @@ const Home = () => {
 
     try {
       const response = await axios.post(
-        "http://172.16.14.112:3000/api/v1/contact-us",
+        "http://api.tellyoudoc.com/api/v1/contact-us",
         formData
       );
 
@@ -1096,7 +1096,7 @@ const Home = () => {
               </div>
             </div>
           </div>
-          <div className="about-images-grid" style={{marginBottom: "auto"}}>
+          <div className="about-images-grid" style={{ marginBottom: "auto" }}>
             {[0, 1, 2, 3].map((position) => (
               <div key={position} className="about-image-wrapper">
                 {slidingImages[position] ? (
@@ -1253,7 +1253,7 @@ const Home = () => {
         <div className="contact-main-section">
           <div className="contact-form">
             <h3>Send us a Message</h3>
-            
+
             {/* Display success message if form is submitted successfully */}
             {formStatus.isSubmitted && (
               <div
@@ -1305,7 +1305,8 @@ const Home = () => {
                   Something went wrong
                 </h3>
                 <p style={{ color: "#5a6a7e", lineHeight: "1.6" }}>
-                  There was an error sending your message. Please try again later.
+                  There was an error sending your message. Please try again
+                  later.
                 </p>
               </div>
             )}
@@ -1314,70 +1315,80 @@ const Home = () => {
             {!formStatus.isSubmitted && (
               <form onSubmit={handleSubmit}>
                 <div className="form-group">
-                  <input 
-                    type="text" 
-                    id="name" 
+                  <input
+                    type="text"
+                    id="name"
                     name="name"
                     value={formData.name}
                     onChange={handleChange}
                     onFocus={() => handleFocus("name")}
                     onBlur={handleBlur}
-                    placeholder=" " 
-                    required 
+                    placeholder=" "
+                    required
                   />
                   <label htmlFor="name">Full Name</label>
-                  {errors.name && <div style={errorMessageStyle}>{errors.name}</div>}
+                  {errors.name && (
+                    <div style={errorMessageStyle}>{errors.name}</div>
+                  )}
                 </div>
                 <div className="form-group">
-                  <input 
-                    type="email" 
-                    id="email" 
+                  <input
+                    type="email"
+                    id="email"
                     name="email"
                     value={formData.email}
                     onChange={handleChange}
                     onFocus={() => handleFocus("email")}
                     onBlur={handleBlur}
-                    placeholder=" " 
-                    required 
+                    placeholder=" "
+                    required
                   />
                   <label htmlFor="email">Email Address</label>
-                  {errors.email && <div style={errorMessageStyle}>{errors.email}</div>}
+                  {errors.email && (
+                    <div style={errorMessageStyle}>{errors.email}</div>
+                  )}
                 </div>
                 <div className="form-group">
-                  <input 
-                    type="tel" 
-                    id="phone" 
+                  <input
+                    type="tel"
+                    id="phone"
                     name="phone"
                     value={formData.phone}
                     onChange={handleChange}
                     onFocus={() => handleFocus("phone")}
                     onBlur={handleBlur}
-                    placeholder=" " 
-                    required 
+                    placeholder=" "
+                    required
                   />
                   <label htmlFor="phone">Phone Number</label>
-                  {errors.phone && <div style={errorMessageStyle}>{errors.phone}</div>}
+                  {errors.phone && (
+                    <div style={errorMessageStyle}>{errors.phone}</div>
+                  )}
                 </div>
                 <div className="form-group">
-                  <textarea 
-                    id="message" 
+                  <textarea
+                    id="message"
                     name="message"
                     value={formData.message}
                     onChange={handleChange}
                     onFocus={() => handleFocus("message")}
                     onBlur={handleBlur}
-                    placeholder=" " 
+                    placeholder=" "
                     required
                   ></textarea>
                   <label htmlFor="message">Message</label>
-                  {errors.message && <div style={errorMessageStyle}>{errors.message}</div>}
+                  {errors.message && (
+                    <div style={errorMessageStyle}>{errors.message}</div>
+                  )}
                 </div>
-                <button 
-                  type="submit" 
+                <button
+                  type="submit"
                   className="submit-button"
                   disabled={formStatus.isSubmitting}
                 >
-                  {formStatus.isSubmitting ? "Sending..." : "Click to contact us"}
+                  {formStatus.isSubmitting
+                    ? "Sending..."
+                    : "Click to contact us"}
                 </button>
               </form>
             )}
